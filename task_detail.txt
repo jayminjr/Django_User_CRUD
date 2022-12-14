@@ -1,0 +1,30 @@
+Task: CRUD of users and login
+
+1. Create one form of these following fields
+    - First name
+    - Last name
+    - Email
+    - Mobile
+    - DOB 
+    - Age(calculate from DOB)
+    - Hobbies(multiselect)
+    - Created_at
+
+    => Save these 2 fileds from backend
+        - Gender (https://api.genderize.io/?name=mihir)
+            (get Gender from this api using name)
+        - Generate random password (send to email for username and password after create user)
+
+    => save this details to user table
+    => save (Hobbies and Age in another table)
+
+2. Login (do login through email and password)
+
+3. List these details with pagination, sort by - created_at
+
+4. Update User Details Page
+
+5. Delete User
+
+Note* -> Validation required in form(server side)
+      -> Design doesn't matter
