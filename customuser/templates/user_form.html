@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block body %}
+<div class="container m-5 p-5 mt-0">
+    <div class="row">
+        <div class="col-8">
+            <h2 class="pb-4">{% if user_form.instance.pk %} Update User {% else %} Create User {% endif %}</h2>
+        </div>
+        <div class="col-4 d-flex justify-content-end align-items-center">
+            <a class="btn btn-success" href="{% url 'customuser:user_list' %}" role="button"> <i class="fa fa-list-ol" aria-hidden="true"></i> User List</a>
+        </div>
+    </div>
+    {% if user_form.errors%}
+    {% for field in user_form %}
+    {% if field.errors %}
+    <div class="alert alert-danger" role="alert">
+        {{ field.errors|striptags }}
+    </div>
+    {% endif %}
+    {% endfor %}
+    {% endif %}
+
+    {% if user_address_form.errors%}
+    {% for field in user_address_form %}
+    {% if field.errors %}
+    <div class="alert alert-danger" role="alert">
+        {{field.name}} : {{ field.errors|striptags }}
+    </div>
+    {% endif %}
+    {% endfor %}
+    {% endif %}
+
+    <form method="POST">
+        {% csrf_token %}
+        {{user_form.as_p}}
+        {{user_info_form.as_p}}
+        <input type="submit" value="Submit" class="btn btn-primary mb-3">
+    </form>
+</div>
+{% endblock%}

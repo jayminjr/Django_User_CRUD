@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<div class="container m-5 p-5 pt-0">
+    <div class="row">
+        <div class="col-8">
+            <h2 class="pb-4">User Detail</h2>    
+        </div>
+        <div class="col-4 d-flex justify-content-end align-items-center">
+            <a class="btn btn-success" href="{% url 'customuser:user_list' %}" role="button"><i class="fa fa-list-ol" aria-hidden="true"></i> User List</a>
+            <div class="p-3">
+                <a class="btn btn-warning" href="{% url 'customuser:update_user' object.id %}" role="button"><i class="fa fa-pencil" aria-hidden="true"></i> Update User</a>
+            </div>
+        </div>
+    </div>
+    <div class="container mt-4">
+        <div class="row align-items-start mt-3">
+            <div class="col-4">
+                <b>First Name</b>
+            </div>
+            <div class="col">
+                {{object.first_name}}
+            </div>
+        </div>
+        <div class="row align-items-start mt-3">
+            <div class="col-4">
+                <b>Last Name</b>
+            </div>
+            <div class="col">
+                {{object.last_name}}
+            </div>
+        </div>
+        <div class="row align-items-start mt-3">
+            <div class="col-4">
+                <b>Gender</b>
+            </div>
+            <div class="col">
+                {{object.gender}}
+            </div>
+        </div>
+        <div class="row align-items-start mt-3">
+            <div class="col-4">
+                <b>Username</b>
+            </div>
+            <div class="col">
+                {{object.email}}
+            </div>
+        </div>
+        <div class="row align-items-start mt-3">
+            <div class="col-4">
+                <b>Phone Number</b>
+            </div>
+            <div class="col">
+                {{object.phone}}
+            </div>
+        </div>
+        <div class="row align-items-start mt-3">
+            <div class="col-4">
+                <b>Date Of Birth</b>
+            </div>
+            <div class="col">
+                {{object.dob}}
+            </div>
+        </div>
+        <hr />
+        <div class="row align-items-start mt-3">
+            <div class="col-4">
+                <b>Age</b>
+            </div>
+            <div class="col">
+                {{object.user_info.age}}
+            </div>
+        </div>
+        <div class="row align-items-start mt-3">
+            <div class="col-4">
+                <b>Hobbies</b>
+            </div>
+            <div class="col">
+                {{object.user_info.hobbies}}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
